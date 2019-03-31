@@ -16,19 +16,7 @@ export const routes = {
 class Root extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-          value: '',
-        }
-      }
-    
-      onChangeHandler = (e) => {
-        this.setState({ value: e.target.value});
-      }
-    
-      onSearchHandler = () => {
-        this.props.history.push(routes.MAIN);
-        this.props.onSearch(this.state.value);
-      }
+    }
 
     render(){
         return (<div className='root-container'>
