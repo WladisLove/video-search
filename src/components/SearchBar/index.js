@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
@@ -44,6 +45,22 @@ class SearchBar extends React.Component{
                 : <Link to={routes.FAVOURITES}>Favourites</Link> }
         </div>)
     }
+};
+
+SearchBar.propTypes = {
+    defaultValue: PropTypes.string,
+    history: PropTypes.shape({
+        push: PropTypes.func.isRequired,
+    }).isRequired,
+    location: PropTypes.shape({
+        pathname: PropTypes.string.isRequired,
+    }).isRequired,
+    onSearch: PropTypes.func,
+};
+
+SearchBar.defaultProps = {
+    defaultValue: '',
+    onSearch: () => {},
 };
 
 export default SearchBar;

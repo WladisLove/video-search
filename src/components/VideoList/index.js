@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import VideoItem from '../VideoItem'
 import Loader from 'react-loader-spinner'
 
 import './styles.css'
 
 class VideoList extends Component {
-  constructor(props){
-    super(props);
-    this.state = { }
-  }
 
   onVideoClick = (id) => () => {
     console.log('[onVideoClick]', id);
@@ -49,5 +46,19 @@ class VideoList extends Component {
     </div>);
   }
 }
+
+VideoList.propTypes = {
+    videos: PropTypes.array,
+    loading: PropTypes.bool,
+    title: PropTypes.string,
+    onChangeFavourite: PropTypes.func,
+};
+
+VideoList.defaultProps = {
+    videos: [],
+    loading: false,
+    title: '',
+    onChangeFavourite: () => {},
+};
 
 export default VideoList;
