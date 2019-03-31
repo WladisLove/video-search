@@ -22,12 +22,10 @@ class Root extends React.Component{
       }
     
       onChangeHandler = (e) => {
-        //console.log(e.target.value);
         this.setState({ value: e.target.value});
       }
     
       onSearchHandler = () => {
-        console.log('search:', this.state.value);
         this.props.history.push(routes.MAIN);
         this.props.onSearch(this.state.value);
       }

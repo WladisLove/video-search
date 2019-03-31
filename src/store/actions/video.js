@@ -31,7 +31,6 @@ export const getFavourites = () => async (dispatch) => {
     dispatch({ type: actionTypes.GET_FAVOURITES_START });
 
     const response = await videoAPI.getFavourites();
-    console.log('[getFavourites]', response);
 
     response.error ? 
         dispatch({ type: actionTypes.GET_FAVOURITES_FAILURE })

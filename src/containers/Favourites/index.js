@@ -11,7 +11,6 @@ class Video extends Component {
   }
 
   componentWillUnmount(){
-    console.log('[clearFavourites]');
     this.props.clearFavourites();
   }
 
