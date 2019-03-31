@@ -1,3 +1,10 @@
 .video-list > div:not(:last-child){
     border-bottom: 1px solid #2a5885;
 }
+
+.video-list .emply-list{
+    text-align: center;
+    font-size: 20px;
+    margin: 20px 0;
+    color: rgba(0,0,0,0.3);
+}

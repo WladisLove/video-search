@@ -10,12 +10,22 @@ import SearchBar from '../../components/SearchBar'
 
 export const routes = {
     MAIN: '/',
-    FAVOURITES: '/favourites'
+    FAVOURITES: '/favourites',
+    query: {
+        SEARCH: '?search=',
+    }
 }
 
 class Root extends React.Component{
     constructor(props){
         super(props);
+    }
+
+    componentDidMount(){
+        let searchTerm = this.props.location.search;
+        searchTerm && ( 
+            this.props.onSearch(searchTerm.substr(routes.query.SEARCH.length))
+        );
     }
 
     render(){

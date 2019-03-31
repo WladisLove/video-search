@@ -21,8 +21,7 @@ class SearchBar extends React.Component{
     }
     
     onSearchHandler = () => {
-        (this.props.location.pathname !== routes.MAIN) 
-            && this.props.history.push(routes.MAIN);
+        this.props.history.push(`${routes.MAIN}${routes.query.SEARCH}${this.state.value}`);
         this.props.onSearch(this.state.value);
     }
 
@@ -39,7 +38,9 @@ class SearchBar extends React.Component{
             </button>
             
             { this.props.location.pathname === routes.FAVOURITES ? 
-                <Link to={routes.MAIN}><FontAwesomeIcon icon={faChevronLeft} />To search</Link>
+                <Link to={`${routes.MAIN}${routes.query.SEARCH}${this.state.value}`}>
+                    <FontAwesomeIcon icon={faChevronLeft} />To search
+                </Link>
                 : <Link to={routes.FAVOURITES}>Favourites</Link> }
         </div>)
     }

@@ -29,12 +29,16 @@ class VideoList extends Component {
 
         {
             !loading ? (
-                videos.map(video => (
-                    <VideoItem key={video.id}
-                        video={video}
-                        changeFavouriteStatus={this.changeFavouriteStatus(video.id, video.isFavourite)}
-                        onVideoClick={this.onVideoClick(video.id)}/>
-                ))
+                videos.length ? (
+                    videos.map(video => (
+                        <VideoItem key={video.id}
+                            video={video}
+                            changeFavouriteStatus={this.changeFavouriteStatus(video.id, video.isFavourite)}
+                            onVideoClick={this.onVideoClick(video.id)}/>
+                    ))
+                ) : (
+                    <div className='emply-list'>No videos</div>
+                )
             ) : (
                 <div className='loader-container'>
                     <Loader type="Oval" color="#5181b8" height={80} width={80} />
