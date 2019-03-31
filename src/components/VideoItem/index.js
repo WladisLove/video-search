@@ -11,12 +11,14 @@ const VideoItem = (props) => {
     return (
         <div onClick={props.onVideoClick} className='video-item'>
             <img src={thumbs.medium}/>
-            <div>
+            <div className='video-info'>
                 <div className='video-title'>{title}</div>
                 <div className='video-desc'>{description}</div>
-                <div>{timeDifference(publishedAt)}</div>
-                <div onClick={props.changeFavouriteStatus} className={`favourite-btn ${isFavourite && 'active'}`}>
-                    {isFavourite ? 'FROM' : 'TO'} Favourite
+                <div className='video-published-time'>{timeDifference(publishedAt)}</div>
+                <div className='favourite-btn-wrapper'>
+                    <div onClick={props.changeFavouriteStatus} className={`favourite-btn ${isFavourite && 'active'}`}>
+                        {/*isFavourite ? 'FROM' : 'TO'*/} Favourite
+                    </div>
                 </div>
             </div>
         </div>
