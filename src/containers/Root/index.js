@@ -19,18 +19,20 @@ export const routes = {
 class Root extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            defaultSearchTerm: this.props.location.search ? 
+                this.props.location.search.substr(routes.query.SEARCH.length) : '',
+        }
     }
 
     componentDidMount(){
-        let searchTerm = this.props.location.search;
-        searchTerm && ( 
-            this.props.onSearch(searchTerm.substr(routes.query.SEARCH.length))
-        );
+        let searchTerm = this.state.defaultSearchTerm;
+        searchTerm && this.props.onSearch(searchTerm);
     }
 
     render(){
         return (<div className='root-container'>
-            <SearchBar {...this.props}/>
+            <SearchBar {...this.props} defaultValue={this.state.defaultSearchTerm}/>
             
             <Switch>
                 <Route exact path={routes.MAIN} component={App} />
