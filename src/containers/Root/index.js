@@ -6,6 +6,7 @@ import { searchVideos } from '../../store/actions/video'
 
 import App from '../App'
 import Favourites from '../Favourites'
+import SearchBar from '../../components/SearchBar'
 
 export const routes = {
     MAIN: '/',
@@ -32,25 +33,15 @@ class Root extends React.Component{
       }
 
     render(){
-        return (<div>
-            <input value={this.state.value} onChange={this.onChangeHandler}/>
-            <button onClick={this.onSearchHandler}>Search</button>
-
-            { this.props.location.pathname === routes.FAVOURITES ? 
-                <Link to={routes.MAIN}>Back to search</Link>
-                : <Link to={routes.FAVOURITES}>Favourites</Link> }
-
+        return (<div className='root-container'>
+            <SearchBar {...this.props}/>
+            
             <Switch>
                 <Route exact path={routes.MAIN} component={App} />
                 <Route path={routes.FAVOURITES} component={Favourites} />
             </Switch>
         </div>)
     }
-};
-
-const mapStateToProps = state => {
-	return {
-    };
 };
 
 const mapDispatchToProps = dispatch => {

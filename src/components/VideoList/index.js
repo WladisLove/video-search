@@ -37,7 +37,7 @@ class VideoList extends Component {
                 ))
             ) : (
                 <div className='loader-container'>
-                    <Loader type="Oval" color="red" height={80} width={80} />
+                    <Loader type="Oval" color="#5181b8" height={80} width={80} />
                 </div>
             )
         }
